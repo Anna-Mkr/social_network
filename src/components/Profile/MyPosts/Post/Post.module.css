@@ -1,0 +1,15 @@
+
+
+.item {
+    color: #082baa;
+}
+
+.item.active {
+    color: aqua;
+}
+
+.item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px ;
+}
