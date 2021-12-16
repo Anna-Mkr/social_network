@@ -3,10 +3,10 @@ import {ChangeEvent} from "react";
 const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY";
 const SEND_MESSAGE = "SEND_MESSAGE";
 
-type dialogsActionType = {
-    type: "UPDATE-NEW-MESSAGE-BODY" | "SEND_MESSAGE"
-
-}
+// type dialogsActionType = {
+//     type: "UPDATE-NEW-MESSAGE-BODY" | "SEND_MESSAGE"
+//
+// }
 
 let initialSate = {
     dialogs: [

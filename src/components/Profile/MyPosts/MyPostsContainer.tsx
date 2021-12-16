@@ -1,7 +1,6 @@
-import React, {ChangeEvent} from "react";
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer";
 import MyPosts from "./MyPosts";
-import {RootStateType, StoreType} from "../../../redux/store";
+import {RootStateType} from "../../../redux/store";
 import {connect} from "react-redux";
 
 
@@ -11,9 +10,9 @@ export type PostType = {
     likesCount: number
 }
 
-export type MyPostsContainerType = {
-    store: StoreType
-}
+// export type MyPostsContainerType = {
+//     store: StoreType
+// }
 
 const mapStateToProps = (state: RootStateType) => {
     return{

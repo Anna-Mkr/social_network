@@ -6,7 +6,7 @@ import {PostType} from "../MyPosts";
 const Post = (props:PostType) => {
     return (
         <div className={`${s.item} ${s.active}`}>
-            <img src='https://i.pinimg.com/originals/9f/8f/cd/9f8fcdc389c0d84cc88e3f7ca81b7c4e.jpg'/>
+            <img alt={"avatar"} src='https://i.pinimg.com/originals/9f/8f/cd/9f8fcdc389c0d84cc88e3f7ca81b7c4e.jpg'/>
             {props.message}
 
             <div>

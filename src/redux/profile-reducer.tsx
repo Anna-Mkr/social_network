@@ -15,6 +15,7 @@ let initialState = {
         {id: 2, message: 'Its my first post', likesCount: 11},
         {id: 3, message: 'BlaBla', likesCount: 23},
         {id: 4, message: 'Dada', likesCount: 17},
+        {id: 5, message: 'Yooo', likesCount: 3},
     ],
     newPostText: ""
 }

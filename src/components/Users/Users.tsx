@@ -35,7 +35,7 @@ let Users = (props: any) => {
                 props.users.map( (u: any) => <div key={u.id}>
                         <span>
                             <div>
-                                <img src={u.photoUrl} className={styles.userPhoto}/>
+                                <img alt={"User's"} src={u.photoUrl} className={styles.userPhoto}/>
                             </div>
                             <div>
                                     {u.followed ? <button onClick={ () => {props.unfollow(u.id)} }>Unfollow </button>
@@ -54,8 +54,6 @@ let Users = (props: any) => {
 </span>
 
                         </span>
-                        <span></span>
-
 
                     </div>
                 )
