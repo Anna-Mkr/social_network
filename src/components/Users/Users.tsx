@@ -3,28 +3,34 @@ import styles from "./users.module.css"
 import axios from "axios";
 import userPhoto from "../../assets/images/user.png"
 
-class Users extends React.Component<any, any>{
+class Users extends React.Component<any, any> {
 
-   getUsers = () => {if (this.props.users.length === 0 ) {
+    constructor(props: any) {
+        super(props);
 
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response =>{
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
 
             this.props.setUsers(response.data.items);
-        } );
-    }}
+        });
+
+    }
 
     render() {
-        return(<div>
-                <button onClick={this.getUsers}>Get Users</button>
+        return (<div>
                 {
-                    this.props.users.map( (u: any) => <div key={u.id}>
+                    this.props.users.map((u: any) => <div key={u.id}>
                         <span>
                             <div>
-                                <img alt={"User's"} src={u.photos.small != null ? u.photos.small : userPhoto } className={styles.userPhoto}/>
+                                <img alt={"User's"} src={u.photos.small != null ? u.photos.small : userPhoto}
+                                     className={styles.userPhoto}/>
                             </div>
                             <div>
-                                    {u.followed ? <button onClick={ () => {this.props.unfollow(u.id)} }>Unfollow </button>
-                                        : <button onClick={ () => {this.props.follow(u.id)} }>Follow</button>}
+                                    {u.followed ? <button onClick={() => {
+                                            this.props.unfollow(u.id)
+                                        }}>Unfollow </button>
+                                        : <button onClick={() => {
+                                            this.props.follow(u.id)
+                                        }}>Follow</button>}
                             </div>
 
 <span>
