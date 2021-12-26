@@ -8,7 +8,6 @@ import DialogItem from "./DialogItem/DialogItem";
 
 
 const Dialogs = (props: any) => {
-    debugger;
 
     let state = props.dialogsPage;
     
