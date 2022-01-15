@@ -5,3 +5,7 @@
     border: 3px solid #000000; /* Параметры рамки */
     box-shadow: 0 0 7px #666; /* Параметры тени */
 }
+
+.selectedPage {
+    font-weight: bold;
+}
