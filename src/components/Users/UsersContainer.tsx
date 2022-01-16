@@ -5,7 +5,7 @@ import React from "react";
 import axios from "axios";
 import Users from "./Users";
 
-class UsersAPIComponent extends React.Component<any, any> {
+class UsersContainer extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
@@ -68,4 +68,4 @@ let mapDispatchToProps = (dispatch: any) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
