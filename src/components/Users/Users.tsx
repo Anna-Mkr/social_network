@@ -1,6 +1,7 @@
 import styles from "./users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 type UsersType = {
     onPageChanged: (p: number) => void
@@ -23,22 +24,24 @@ const Users = (props: UsersType) => {
         pages.push(i)
     }
 
-        return (<div>
-                <div>
-                    {
-                        pages.map(p => {
-                            return <span className={p === props.currentPage ? styles.selectedPage : ""}
-                                         onClick={() => {
-                                             props.onPageChanged(p)
-                                         }}>{p}</span>
-                        })}
-                </div>
+    return (<div>
+            <div>
                 {
-                    props.users.map((u: any) => <div key={u.id}>
+                    pages.map(p => {
+                        return <span className={p === props.currentPage ? styles.selectedPage : ""}
+                                     onClick={() => {
+                                         props.onPageChanged(p)
+                                     }}>{p}</span>
+                    })}
+            </div>
+            {
+                props.users.map((u: any) => <div key={u.id}>
                             <span>
                                 <div>
-                                    <img alt={"User's"} src={u.photos.small != null ? u.photos.small : userPhoto}
+                                    <NavLink to={'/profile/' + u.id}>
+                                    <img alt={"User"} src={u.photos.small != null ? u.photos.small : userPhoto}
                                          className={styles.userPhoto}/>
+                                         </NavLink>
                                 </div>
                                 <div>
                                         {u.followed ? <button onClick={() => {
@@ -62,11 +65,11 @@ const Users = (props: UsersType) => {
 
                             </span>
 
-                        </div>
-                    )
-                }
-            </div>
-        )
+                    </div>
+                )
+            }
+        </div>
+    )
 
 }
 
