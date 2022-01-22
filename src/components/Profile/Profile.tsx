@@ -1,14 +1,13 @@
 import React from "react";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import {StoreType} from "../../redux/store";
 
 
 const Profile = (props: any) => {
 
     return (
         <div >
-            <ProfileInfo />
+            <ProfileInfo profile={props.profile} />
             <MyPostsContainer
                 // @ts-ignore
                 store={props.store}/>

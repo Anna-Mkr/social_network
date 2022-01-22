@@ -1,9 +1,9 @@
-import {PostType} from "../redux/store";
-
+import {PostType} from "./store";
 
 
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const SET_USER_PROFILE = "SET_USER_PROFILE";
 
 // type profileActionType = {
 //     type: "ADD-POST" | "UPDATE-NEW-POST-TEXT"
@@ -17,7 +17,8 @@ let initialState = {
         {id: 4, message: 'Dada', likesCount: 17},
         {id: 5, message: 'Yooo', likesCount: 3},
     ],
-    newPostText: ""
+    newPostText: "",
+     profile: null,
 }
 
 const profileReducer = (state: any = initialState, action: any) => {
@@ -38,6 +39,11 @@ const profileReducer = (state: any = initialState, action: any) => {
                 ...state,
                 newPostText: action.newText
             }
+            case SET_USER_PROFILE:
+            return {
+                ...state,
+                profile: action.profile
+            }
         default:
             return state;
     }
@@ -45,9 +51,9 @@ const profileReducer = (state: any = initialState, action: any) => {
 
 export const addPostActionCreator = () => ({type: ADD_POST})
 export const updateNewPostTextActionCreator = (e: string) => ({
-    //type: UPDATE_NEW_POST_TEXT, newText: e.currentTarget.value
     type: UPDATE_NEW_POST_TEXT, newText: e
 })
+export const setUserProfile = (profile: any) => ({type: SET_USER_PROFILE, profile})
 
 
 export default profileReducer;
