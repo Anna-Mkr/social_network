@@ -8,3 +8,8 @@
     width: 53px;
     border-radius: 40px;
 }
+
+.loginBlock {
+    float: right;
+    margin: 2px 1em 0 auto;
+}
