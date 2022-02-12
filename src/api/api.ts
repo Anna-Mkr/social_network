@@ -23,6 +23,9 @@ export const usersAPI = {
 debugger;
        return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
     },
+    getProfile(userId: any){
+        return instance.get(`profile/` + userId)
+    },
 }
 
 
