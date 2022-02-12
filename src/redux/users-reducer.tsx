@@ -61,8 +61,8 @@ const usersReducer = (state: any = initialState, action: any) => {
     }
 }
 
-export const follow = (userId: any) => ({type: FOLLOW, userId})
-export const unfollow = (userId: any) => ({type: UNFOLLOW, userId})
+export const followSuccess = (userId: any) => ({type: FOLLOW, userId})
+export const unfollowSuccess = (userId: any) => ({type: UNFOLLOW, userId})
 export const setUsers = (users: any) => ({type: SET_USERS, users})
 export const setCurrentPage = (currentPage: number) => ({type: SET_CURRENT_PAGE, currentPage: currentPage})
 export const setTotalUsersCount = (totalUsersCount: number) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount})
@@ -70,9 +70,7 @@ export const toggleIsFetching = (isFetching: boolean) => ({type: TOGGLE_IS_FETCH
 export const toggleFollowingProgress = (isFetching: boolean, userId: any) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching: isFetching, userId: userId})
 
 export const getUsers = (currentPage: any, pageSize: any ) =>{
-
  return (dispatch: any) => {
-
     dispatch(toggleIsFetching(true));
 
     usersAPI.getUsers(currentPage, pageSize).then(data => {
@@ -82,5 +80,31 @@ export const getUsers = (currentPage: any, pageSize: any ) =>{
     });
 
 }}
+
+export const follow = (userId: any ) =>{
+    return (dispatch: any) => {
+        debugger
+        dispatch(toggleFollowingProgress(true, userId));
+        usersAPI.follow(userId)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                   dispatch(followSuccess(userId))
+                }
+                dispatch(toggleFollowingProgress(false, userId));
+            });
+
+    }}
+    //проверить почему unfollow не используется
+export const unfollow = (userId: any ) => {
+    return (dispatch: any) => {
+        dispatch(toggleFollowingProgress(true, userId));
+        usersAPI.unfollow(userId)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(unfollowSuccess(userId));
+                }
+                dispatch(toggleFollowingProgress(false, userId));
+            });
+    }}
 
 export default usersReducer;

@@ -16,11 +16,13 @@ export const usersAPI = {
                 return response.data
             })
     },
-
-    getUsers2(currentPage: any, pageSize: any) {
-        return axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`, {
-            withCredentials: true
-        }).then(response => response.data)
-    }
+    follow(userId: any) {
+      return  instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+    },
+    unfollow(userId: any) {
+debugger;
+       return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+    },
 }
+
 
