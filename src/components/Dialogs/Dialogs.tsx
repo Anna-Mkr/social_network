@@ -2,6 +2,7 @@ import React, {ChangeEvent} from 'react'
 import s from './Dialogs.module.css'
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
+import {Redirect} from "react-router-dom"
 
 
 
@@ -23,10 +24,12 @@ let onSendMessageClick = () => {
 }
 
 let onNewMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-
 let body = e.target.value;
     props.updateNewMessageBody(body)
 }
+
+if (!props.isAuth) return <Redirect to={"./login"}/>;
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
@@ -37,7 +40,7 @@ let body = e.target.value;
                 <div>
                     <div><textarea value={ newMessagesBody }
                                    onChange={ onNewMessageChange }
-                                   placeholder="Enter your message" ></textarea> </div>
+                                   placeholder="Enter your message" /> </div>
                     <div><button onClick={ onSendMessageClick }>Send</button></div>
                 </div>
             </div>

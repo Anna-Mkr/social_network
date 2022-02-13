@@ -7,6 +7,7 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import LoginPage from "./components/Login/Login";
 
 export type PropsType = {
     store: StoreType
@@ -29,7 +30,10 @@ const App = () => {
                            render={() => <ProfileContainer/>}/>
 
                     <Route path='/users'
-                           render={ () => <UsersContainer/> }/>
+                           render={() => <UsersContainer/>}/>
+
+                    <Route path='/login'
+                           render={() => <LoginPage/>}/>
 
                 </div>
             </div>

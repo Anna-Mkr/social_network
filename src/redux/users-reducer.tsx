@@ -93,7 +93,7 @@ export const follow = (userId: any ) =>{
             });
 
     }}
-    //проверить почему unfollow не используется
+
 export const unfollow = (userId: any ) => {
     return (dispatch: any) => {
         dispatch(toggleFollowingProgress(true, userId));
